@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+#cfirst{
+	width:100%;
+	min-width:480px;
+	float:left;
+	background-color:#f0ffff;
+}
+#container{
+	width:42%;
+	min-width:320px;
+	height: 300px;
+	/*float:left; 
+	background-color:#d3d3d3;*/
+}
+#money{
+	width:30px;
+	margin:2px;
+	/*float:left; */
+}
+#container2{
+	width:42%;
+	min-width:320px;
+	height:300px;
+	/*float:left; */
+}
+#container3{
+	width:42%;
+	min-width:320px;
+	height:300px;
+	/*float:left; */
+}
+#container4{
+	width:42%;
+	height: 300px;
+	/*float:left; */
+	background-color:#f0ffff;
+}
+#container5{
+	width:42%;
+	min-width:320px;
+	height:300px;
+	/*float:left; */
+}

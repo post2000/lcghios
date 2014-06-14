@@ -1,0 +1,322 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>中邮保险产品小助手</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css"  type="text/css" />
+    <link rel="stylesheet" href="../css/jqm-demos.css"  type="text/css"/>
+    <link rel="stylesheet" href="../css/products.css"  type="text/css"/>
+	<link type="text/css" rel="stylesheet" href="../css/demo.css" />
+		<link type="text/css" rel="stylesheet" href="../css/jquery.mmenu.css" />
+	<link rel="shortcut icon" href="../img/favicon.ico"  type="text/css"/>
+	<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="../js/index.js" type="text/javascript"></script>
+	<script src="../js/jquery.mobile-1.3.2.min.js" type="text/javascript"></script>
+	<script src="../js/func_all.js" type="text/javascript"></script>  
+	<script src="../js/hammer.js" type="text/javascript"></script>  
+	<script type="text/javascript" src="../js/jquery.mmenu.js"></script>
+	<script type="text/javascript" src="../js/nmmenu_hj.js"></script>
+	<script src="../js/hj.js" type="text/javascript"></script>  
+	
+	
+    <script language="javascript" type="text/javascript">
+			
+		 $(function() {
+				$('nav#menu').mmenu({
+					slidingSubmenus: false
+				});
+			});	
+			
+		/*	 jQuery(document).ready(function(){
+	jQuery(".nav ul li").hover(
+		function(){
+			jQuery(this).children(".drop_dwon").slideDown(200);
+			jQuery(this).children(".nav ul li a").attr("id","currlayout")
+		},
+		function(){
+			jQuery(this).children(".drop_dwon").slideUp(100);
+			jQuery(this).children(".nav ul li a").attr("id","")
+		}
+	);
+});*/
+			
+			function computeGuarantee_fu3(){
+				//$("#customerinfoshow").text("success:"+customerinfo.join());
+				//alert($("#payperiodmain").text());
+				 $("#showage_f3").text(i_age);
+				//coverages used in table
+				
+				
+				var i_copiesMain=i_premium/1000;
+				var i_f3=9;
+				
+				if(i_age<=40)
+				{
+					i_f3=0;				
+				}
+				else
+				{	
+					if((i_age>=41)&&(i_age<=50))
+					{
+						i_f3=1;	
+					}
+					else
+					{
+						if((i_age>=51)&&(i_age<=55))
+						{
+							i_f3=2;	
+						}
+						else
+						{
+							if((i_age>=56)&&(i_age<=60))
+							{
+								i_f3=3;	
+							}
+							else
+							{
+								if((i_age>=61)&&(i_age<=65))
+								{
+									i_f3=4;	
+								}
+								else
+								{
+									i_f3=5;	
+								}
+							}
+						}
+					}
+				}
+				
+				if(i_years==3){
+					f_additionalcoverage=arr_fu3[1][i_f3]*i_copiesMain;
+					f_all_coverage=f_additionalcoverage*3;
+					$("#coverage_f3").text(formatNum(f_additionalcoverage*1));   //回显基本保额       
+					$("#mainpremium_f3").text(formatNum(i_premium*1));     //回显保费
+					$("#payperiodmain_f3").text(i_years+"年");
+				}
+				else{
+					if(i_years==6)
+					{
+						f_additionalcoverage=arr_fu3[2][i_f3]*i_copiesMain;
+						f_all_coverage=f_additionalcoverage*6;
+						$("#coverage_f3").text(formatNum(f_additionalcoverage*1));   //回显基本保额       
+						$("#mainpremium_f3").text(formatNum(i_premium*1));     //回显保费
+						$("#payperiodmain_f3").text(i_years+"年");
+					}
+					else
+					{
+						f_additionalcoverage=arr_fu3[0][i_f3]*i_copiesMain;
+						f_all_coverage=f_additionalcoverage*1;
+						$("#coverage_f3").text(formatNum(f_additionalcoverage*1));   //回显基本保额       
+						$("#mainpremium_f3").text(formatNum(i_premium*1));     //回显保费
+						$("#payperiodmain_f3").text("一次性交费");
+					}
+				}
+				
+							 
+				$("#mainpremium_f3_a").text(formatNum(i_premium*1));     //回显保费
+				$("#f_all_coverage_f3").text(formatNum(f_all_coverage*1));     //回显满期保险金
+				 
+
+				$("#unexpectedgomin_f3_a").text(formatNum(f_additionalcoverage));   //回显最低金额=三种缴费方式的基本保额*缴费1年
+				$("#unexpectedgomin_f3_b").text(formatNum(f_additionalcoverage*2));   //回显最低金额=三种缴费方式的基本保额*缴费1年*2倍
+				$("#unexpectedgomin_f3_c").text(formatNum(f_additionalcoverage*3));   //回显最低金额=三种缴费方式的基本保额*缴费1年*3倍
+				
+				$("#unexpectedgomax_f3_a").text(formatNum(f_all_coverage));   //回显最高金额=三种缴费方式的基本保额*缴费年度*1倍
+				$("#unexpectedgomax_f3_b").text(formatNum(f_all_coverage*2));   //回显最高金额=三种缴费方式的基本保额*缴费年度*2倍
+				$("#unexpectedgomax_f3_c").text(formatNum(f_all_coverage*3));   //回显最高金额=三种缴费方式的基本保额*缴费年度*3倍
+				
+
+			}	 /*fu3*/
+			
+		 
+		$(document).on("pageinit", function() {		 
+			$("#getguarantee_fu3").click(function(){
+				//if premiuOK,renew & show page nianbguarantee
+				 i_money_check=$("#premium_input_f3").val();                    //强行赋值,检查函数使用 
+				if(premiumOK_2()){
+					i_age=$("#age_f3").val();
+					//i_sex=$("#male").is(':checked') ? 1:0;
+					i_years=$('input:radio[name="years_f3"]:checked').val();
+					i_premium=$("#premium_input_f3").val(); //old var  is customerinfo[3]
+					 
+					computeGuarantee_fu3();
+					$.mobile.changePage("#fu3guarantee" );
+					 
+				}
+			});
+			
+			$(".nav ul li").hover(
+				function(){
+					jQuery(this).children(".drop_dwon").slideDown(200);
+					jQuery(this).children(".nav ul li a").attr("id","currlayout")
+				},
+				function(){
+					jQuery(this).children(".drop_dwon").slideUp(100);
+					jQuery(this).children(".nav ul li a").attr("id","")
+				}
+			);
+		});  
+	</script>
+</head>
+<body>
+    
+<!-- page Fu3info   -->
+<div data-role="page"  id="fu3info" class="info">
+	<div class="header">
+		<a href="#menu"></a>
+				保障计划
+				 
+	</div>
+	 <nav id="menu">
+				<ul>
+					<li><a href="../index.html">回到主页</a></li>					
+				</ul>
+			</nav>	  
+    <div data-role="content">
+		 
+        <div class="customerinfo">
+        	 <div class="customertext">基本信息:富富余3号两全保险(分红型)</div>
+                    <div class="customertext">被保险人年龄（0至70岁）：</div>
+                    <div class="divage"><input id="age_f3" type="range"  value="25" min="0" max="70" /></div><br/><hr/><br/>
+                    <div class="customertext">交 费 期：</div>
+                    <div class="ui-field-contain">
+  						<fieldset data-role="controlgroup">	
+                                <input type="radio" name="years_f3" id="0year_f3" value="0"  />
+                                <label for="0year_f3" data-mini="true" >趸交</label>
+                                <input type="radio" name="years_f3" id="3year_f3" value="3"  />
+                                <label for="3year_f3" data-mini="true">3年</label>                        
+                                <input type="radio" name="years_f3" id="6year_f3" value="6" checked="checked"  />
+                                <label for="6year_f3" data-mini="true">6年 </label>			           
+                    	</fieldset>
+                    </div>	
+                    <hr/><br/>
+                    <div class="customertext">年交费合计（要求为500的整数倍，2份起售，单位：元）：</div>
+                    <input class="premium_input" id="premium_input_f3" type="number" data-mini="true" value="1000" min="1000" step="500"/>
+                    <span class="premiumalert">本保险产品每份保费500元,最低2份起售,请输入大于1000且为500整倍数的数值！</span><br/><hr/>
+		</div> 
+        <div class="ui-block-a getguaranteediv"><div  data-role="button" id="getguarantee_fu3">计算保险利益</div></div><br/><br/>
+    </div>
+    <div class="oneblankdiv"></div>
+    <div class="blankdiv"></div>
+    <div data-role="footer" class="footer">
+    	<div class="footertext">中邮保险销售辅助工具V3.0.1</div>
+    </div>
+</div> <!--End of page fu3info -->
+
+
+
+<!---fu3 info-->
+<div data-role="page" id="fu3guarantee"  class="info">
+	<div class="header">
+		<a href="#menu"></a>
+				保障计划
+				 
+	</div>
+    <div data-role="content">
+		 <div style=" position: absolute;line-height:1em;right:0.5%;top:0.5em;"><a  data-add-back-btn="true" style="font-size:1em;"   data-rel="back" data-icon="back" data-role="button" class="ui-btn-right" >返回</a></div><br/>
+        <div><span class="title">产品亮点：</span> 富富余3号<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 分红生财图个富!<br/><br/>
+        </div>
+        <div>
+        	<span class="title">基本信息:</span>富富余3号两全保险(分红型);&nbsp;&nbsp;被保险人年龄<span id="showage_f3" class="parameter"> </span>岁
+        	<div class="maininfotable">	        	
+	    		 <table data-role="table"  class="ui-body-d ui-shadow table-stripe ui-responsive"  >
+			         <thead>
+			           <tr class="ui-bar-d"><th>交费期间</th><th>保险期间</th><th>所交保费</th><th >基本保额</th>
+			           </tr>
+			         </thead>
+			         <tbody>          
+			           <tr>	             
+			             <td><span id="payperiodmain_f3" class="parameter"> </span></td>
+			             <td><span class="parameter">6年 </span></td>
+			             <td><span id="mainpremium_f3" class="parameter"></span></td>
+			             <td><span id="coverage_f3" class="parameter"></span></td>	             
+			           </tr>	           
+			         </tbody>
+		       </table> 
+	       </div> 
+		</div>
+			<div>
+        	 <div class="title">一、保险责任：</div>
+			 <div class="title2">(一)满期保险金</div>
+             <div class="coveragetext">保险合同期满，领取满期金<span class="coverage" id="f_all_coverage_f3"></span>元，本合同效力终止。</div>
+             <div class="title2">(二)身故、全残保险金金</div>
+             <div class="coveragetext">被保险人于合同生效之日起180日后因疾病导致身故或全残，按照基本保额乘以交费年度数给付"身故、全残保险金"，最低给付<span class="coverage" id="unexpectedgomin_f3_a"></span>元，最高给付<span class="coverage" id="unexpectedgomax_f3_a"></span>元，合同效力终止。</div>
+             <div class="alert">&nbsp;&nbsp;&nbsp;被保险人于合同生效之日起180日内(含第180日)因疾病身故或全残，无息返还已交的保险费<span class="coverage" id="mainpremium_f3_a"></span>元,本合同效力终止。</div>
+             <div class="title2">(三)意外身故、全残保险金</div>
+             <div class="coveragetext">被保险人于合同生效之日起因意外导致身故或全残，按照基本保额乘以交费年度数的<span  class="parameter">2倍</span>给付"身故、全残保险金"，最低给付<span class="coverage" id="unexpectedgomin_f3_b"></span>元，最高给付<span class="coverage" id="unexpectedgomax_f3_b"></span>元，本合同效力终止。</div>   
+			 <div class="title2">(四)交通意外身故、全残保险金</div>
+             <div class="coveragetext">被保险人于合同生效之日起搭乘指定公共交通工具（见合同条款）期间遭受意外伤害事故导致身故或全残，按照基本保额乘以交费年度数的<span  class="parameter">3倍</span>给付"交通意外身故、全残保险金"，最低给付<span class="coverage" id="unexpectedgomin_f3_c"></span>元，最高给付<span class="coverage" id="unexpectedgomax_f3_c"></span>元，本合同效力终止。</div> <br/>
+			<div class="title">二、合同权益</div>
+             <div class="title2">保单红利</div>
+            <div class="coveragetext">可对分红选择累积生息，享受高速发展的中邮保险的经营成果。</div><br/>
+			<div class="alert">本计划书仅供参考，详细内容以保险合同条款为准。</div><hr/>
+            <div class="manger">理财经理：<span style="padding-left:6em">服务电话：</span></div><br/><br/> 
+			</div>
+		</div>
+		<div class='prn'> <input type='button' class='prnbtn' value='打印当前页' /></div>		
+		
+		<!--<nav id="menu">
+				<ul>
+					<li><a href="../index.html">回到主页</a></li>
+					<li><a href="../html/case.html#fu1_case" rel="external">案例_富富余1号</a></li>
+					<li><a href="../html/code.html#occu_submit3" rel="external">职业代码_模糊查询</a></li>
+					<li><a href="../html/fu3.html" rel="external">富富余3号</a></li>
+					<li><a href="../html/renhe.html" rel="external">核保资料</a></li>
+					<li><a href="../html/mian2.html" rel="external">绵绵寿2号</a></li>
+				</ul>
+		</nav>-->
+		
+		<div data-role="footer" class="footer">
+			<div class="footertext">中邮保险销售辅助工具V3.0.1</div>
+		</div>
+</div><!-- end of fu3 guarantee -->
+
+			<nav id="menu">
+				<ul>
+					<li><a href="../index.html" rel="external">回到主页</a></li>
+					<li class="Selected">
+						<a href="#">保障计划</a>
+						<ul>
+							<li><a href="../html/nian_bbb.html" rel="external"> 年年好百倍保</a></li>
+							<li>
+								<a href="../html/nian_b.html" rel="external">  年年好重疾保障计划</a>
+							</li>
+							<li><a href="../html/fu1.html" rel="external"  > 富富余1号</a></li>
+							<li><a href="../html/fu3.html" rel="external" >  富富余3号</a></li>
+							<li><a href="../html/mian2.html" rel="external">  绵绵寿2号</a></li>
+						</ul>
+					</li>
+					<li  >
+						<a href="#">填单规则</a>
+						<ul>
+							<li><a href="../html/bbbtd.html" rel="external">年年好百倍保 </a></li>
+							<li>
+								<a href="../html/nbtd.html" rel="external">年年好重疾保障计划</a>
+							</li>
+							<li><a href="../html/ffy1td.html" rel="external">富富余1号</a></li>
+							<li><a href="../html/ffy3td.html" rel="external">富富余3号</a></li>
+							<li><a href="../html/mms2td.html" rel="external">绵绵寿2号</a></li>
+						</ul>
+					</li>
+					<li  >
+						<a href="#">职业代码</a>
+						<ul>
+							<li><a href="../html/code_fl.html" rel="external">分类查询</a></li>
+							<li><a href="../html/code_mh.html" rel="external">模糊查询</a></li>
+						</ul>
+					</li>
+					<li >
+						<a href="#">其他</a>
+						<ul>
+							<li><a href="../html/renhe.html" rel="external">人核资料</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>中邮保险产品小助手</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1," />
+	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="../css/jqm-demos.css">
+    <link rel="stylesheet" href="../css/products.css">
+	<link type="text/css" rel="stylesheet" href="../css/demo.css" />
+	<link type="text/css" rel="stylesheet" href="../css/jquery.mmenu.css" />
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/index.js"></script>
+	<script src="../js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="../js/CascadeJs.js"></script> 
+	<script src="../js/hammer.js" type="text/javascript"></script>  
+	<script src="../js/hj.js" type="text/javascript"></script> 
+	<script type="text/javascript" src="../js/jquery.mmenu.js"></script>
+	<script type="text/javascript" src="../js/nmmenu_hj.js"></script>
+    <script language="javascript" type="text/javascript">
+
+			 /*导航条*/
+			$(function() {
+				$('nav#menu').mmenu({
+					slidingSubmenus: false
+				});
+			}); 
+		
+			$(document).on("pageinit", function() {			
+				var h_get_occu=0;
+				var i_occu=0;
+				var ck1_00=0;
+				
+				
+			$.mobile.defaultPageTransition = "none";
+			//$("#cover").click(function(){
+			//	$.mobile.changePage("#main");
+			//});
+		
+			 $("#occu2").click(function(){
+				var ck1_00=$('#Select5 option:selected').val();   //下拉取值
+				var ck2_00=ck1_00.substring(0,4);
+				var arr;
+				var ck3_00=$('#Select4 option:selected').text();   //下拉取值
+				var ck4_00=$('#Select5 option:selected').text();   //下拉取值
+				
+				$("#show2").text(" "); //赋值为空,以免再次提交时数组值追加到后面
+				
+				var str_TableContent_f="<table id='mTable_f' border='1'><tr><th>职业分类</th><th>职业类别</th><th>职业代码和名称</th><th>职业等级</th></tr>" ;
+
+				$.each(arr_occr_code_new04.a, function(i,n){
+					if(n.lb.substring(0,4)==ck2_00)
+					{
+						str_TableContent_f+="<tr><td>"+n.fl+"</td>"+"<td>"+n.lb+"</td>"+"<td>"+n.dm+n.gz+"</td>"+"<td>"+n.dj+"</td></tr>";
+					}
+				});
+					
+				$("#mTable_f").append("</table>");
+				$("#show2").append(str_TableContent_f);
+				
+				//$('#show2').find("tr:even").css({color:"red", font:"黑体"}); 
+				$('#show2').find("tr:odd").css("background-color", "#DDDDDD");   //设置浅灰底色
+				
+				$.mobile.changePage("#occucode_return");
+				//$.mobile.changePage("#occucode_return", "pop", false, false);
+				 event.stopPropagation();   //阻止click执行两次	
+			}); 
+			
+			$("#occu3").click(function(){
+				var input_str=$("input[id='Text1']").val(); 
+				var input_str2=$.trim(input_str);
+				
+							
+				$("#show3").text(" "); //赋值为空,以免再次提交时数组值追加到后面
+							
+				var str_TableContent="<table id='mTable' border='1'><tr><th>职业分类</th><th>职业类别</th><th>职业代码和名称</th><th>职业等级</th></tr>" ;
+				
+				$.each(arr_occr_code_new04.a, function(i,n){						
+					if((n.fl.indexOf(input_str2)>-1) ||(n.gz.indexOf(input_str2)>-1) ||(n.lb.indexOf(input_str2)>-1))   //判断工种和类别中是否包含查询的字符串,若有就取值到show3中
+					{
+						str_TableContent+="<tr><td>"+n.fl+"</td>"+"<td>"+n.lb+"</td>"+"<td>"+n.dm+n.gz+"</td>"+"<td>"+n.dj+"</td></tr>";
+					}
+
+				});
+				
+				var patt1=new RegExp(input_str2,"g");				
+				 str_TableContent=str_TableContent.replace(patt1,"<span style='color:red'>"+input_str2+"</span>");  //20140429 HJ add 查询变量标红
+				
+				$("#mTable").append("</table>");
+				$("#show3").append(str_TableContent);
+								
+				$('#show3').find("tr:odd").css("background-color", "#DDDDDD");   //设置浅灰底色
+				$.mobile.changePage("#occucode_return3");
+				 event.stopPropagation();   //阻止click执行两次	
+				
+			});
+			
+			 
+			 	function RemoveDropDownList(obj) {
+					if (obj) {
+					var len = obj.options.length;
+						if (len > 0) {  
+							for (var i = len; i >= 0; i--) {
+							obj.remove(i);
+								}
+						}
+					}
+
+				}
+
+
+			function select_occu() {
+			var  ck1_00=$('#Select4 option:selected').val();   //下拉取值
+			var select_value;
+			var select_text;
+			var select_length;
+			var city = document.getElementById("Select5");
+
+			select_length=arr_occr_code_new[ck1_00].length;
+
+				RemoveDropDownList(city);
+				for (var i = 0; i < select_length; i++) {
+					select_value= (arr_occr_code_new[ck1_00][i]).substring(0,4);
+					select_text = arr_occr_code_new[ck1_00][i];  
+					var option = document.createElement("option");
+					option.value = select_value;
+					option.text = select_text;
+					city.add(option);
+					}
+					$("#Select5").get(0).selectedIndex=-1;   //解决二级下拉菜单选择第一条不能回显问题
+			} 
+		});
+		
+	</script>
+</head>
+
+
+
+<div data-role='page' id="occu_submit3" >
+	<div id="header">
+				<a href="#menu"></a>
+				职业代码
+	</div>	
+		 <nav id="menu">
+				<ul>
+						<li><a href="../index.html"  rel="external">回到主页1</a></li>
+				</ul>
+			</nav>	  
+	</br></br>
+	
+	<div data-role="content" >
+        <div class="customerinfo" >
+			<div  style="width:22em; margin:80px auto;">
+			<!--<select  id="Select4" name="Select4"  onChange="select_occu()"  >-->
+			<div class="parameter"><h2>请在文本框中输入搜索关键字后提交：</h2></div>
+			<input id="Text1"     type="text" /><span id="Text1Note"></span>			 
+			<div   data-role="button"    data-icon="search" id="occu3"> 提交查看职业代码 </div><br/><br/> 
+			</div>
+		</div> 
+    </div>
+    <div id="oneblankdiv"></div>
+    <div id="blankdiv"></div>
+    <div data-role="footer" class="footer">
+    	<div class="footertext">中邮保险销售辅助工具V3.0.1</div>
+    </div>
+</div>
+
+
+<div data-role="page"  id="occucode_return3" class="info">
+	<div id="header">
+				<a href="#menu"></a>
+				职业代码
+	</div>
+	 <div style=" position: absolute;line-height:1em;right:0.5%;top:0.5em;"><a   data-add-back-btn="true" style="font-size:1em;"   data-rel="back" data-icon="back" data-role="button" class="ui-btn-right" >返回</a></div><br/>
+	<div  id="show3" ></div>	
+	<div id="oneblankdiv"></div>
+    <div id="blankdiv"></div>
+	  <div   data-role="footer" class="footer">
+    	<div class="footertext">中邮保险销售辅助工具V3.0.1</div>
+	</div>
+</div>
+<nav id="menu">
+				<ul>
+					<li><a href="../index.html" rel="external">回到主页</a></li>
+					<li  >
+						<a href="#">保障计划</a>
+						<ul>
+							<li><a href="../html/nian_bbb.html" rel="external"> 年年好百倍保</a></li>
+							<li>
+								<a href="../html/nian_b.html" rel="external">  年年好重疾保障计划</a>
+							</li>
+							<li><a href="../html/fu1.html" rel="external"  > 富富余1号</a></li>
+							<li><a href="../html/fu3.html" rel="external" >  富富余3号</a></li>
+							<li><a href="../html/mian2.html" rel="external">  绵绵寿2号</a></li>
+						</ul>
+					</li>
+					<li  >
+						<a href="#">填单规则</a>
+						<ul>
+							<li><a href="../html/bbbtd.html" rel="external">年年好百倍保 </a></li>
+							<li>
+								<a href="../html/nbtd.html" rel="external">年年好重疾保障计划</a>
+							</li>
+							<li><a href="../html/ffy1td.html" rel="external">富富余1号</a></li>
+							<li><a href="../html/ffy3td.html" rel="external">富富余3号</a></li>
+							<li><a href="../html/mms2td.html" rel="external">绵绵寿2号</a></li>
+						</ul>
+					</li>
+					<li class="Selected">
+						<a href="#">职业代码</a>
+						<ul>
+							<li><a href="../html/code_fl.html" rel="external">分类查询</a></li>
+							<li><a href="../html/code_mh.html" rel="external">模糊查询</a></li>
+						</ul>
+					</li>
+					<li  >
+						<a href="#">其他</a>
+						<ul>
+							<li><a href="../html/renhe.html" rel="external">人核资料</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+</body>
+</html>
