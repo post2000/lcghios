@@ -1,0 +1,239 @@
+@CHARSET "UTF-8";
+
+body {	
+	background-image:url("./images/bg.jpg") !important;	
+	background-repeat: repeat;
+	width:100%;
+	height:100%;
+	/* default font-size in explore is medium that is 16px ,here set base font-size to 10px */ 
+	font-size:62.5%;		
+	font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu,"Trebuchet MS","Lucida Grande";
+}
+div,ul{ 
+	padding:0; 
+	margin:0;
+}
+#tabcontainer{ 	
+	margin:0.5em;
+}
+.tab{
+	padding:0;
+	margin:0; 
+	margin-left:6em; 
+	background-color:#dcdcdc;
+}
+.tab li{ 
+ 	list-style:none; 
+ 	float:left;
+ 	padding:0; 
+ 	margin-right:10px; 
+ 	line-height:2em; 
+ 	height:2em; 
+ 	width:9em; 
+ 	text-align:center;
+ 	border-top-left-radius:0.5em;
+ 	border-top-right-radius:0.5em;
+}
+.content{ 
+	float:none;         	
+	clear:both;     	
+}
+.content > div{ 
+	border-top:0px; 
+	padding-top:30px; 
+	min-width:320px; 
+	border:solid 1px black;
+	border-radius:0.5em;        
+}
+.tab_selected{ 
+	border-left:solid 1px black; 
+	background-color:#dcdcdc;  
+	border-right:solid 1px black; 
+	border-top:solid 1px black; 
+	border-bottom:0px; 
+	bottom:-2px; 
+	position:relative; 
+	z-index:999;
+}
+.tab_current{
+	text-decoration:underline;
+}
+.information,#namediv{
+	float:left;
+	margin-left:1em;
+	margin-top:1em;	
+}
+.information{
+	width:6em;
+}
+.divhr{
+	clear:both;
+}
+#inputname{
+	float:left;	
+	margin-top:1em;
+}
+#sex{
+	float:left;	
+	margin-left:2em;
+}
+#tab1{
+	line-height:200%;
+}
+fieldset{
+	border:0px;
+	line-height:200%;
+	margin-top:1em;	
+}
+#age{
+	float:left;	
+	font-size:1em;
+	line-height:150%;
+	margin-left:3em;
+	margin-top:0.5em;	
+}
+
+#age input , .divmoney input{
+	font-size:1.2em;
+}
+.divmoney input{
+	line-height:100%;
+	margin-top:1em;
+}
+#btnsubmitevalu,#guihua_next_a{
+	margin-left:45%;
+	font-size:1.2em;
+}
+#test{
+	margin-left:5em;
+	border:solid 1px #dcdcdc;
+	background-color:#dcdcdc;
+	border-radius:3px;
+}
+#test:hover{
+	background-color:grey;
+	color:white;
+}
+#btnstartevalu{
+	left:5em;
+	font-size:1.2em;
+	position:relative;
+}
+#evaluation{
+	width:60em;
+	/* height:123em; */
+	background-color:#dcdcdc;	
+	border-radius:0.5em;
+	z-index:999;
+	position:relative;
+	margin-left:1em;
+	top:1em;
+	padding:0.5em 0.5em 0.5em 2.5em;
+	margin-bottom:1em;
+	display:none; 
+}
+#evaluation h3{ 
+	font-size:2.5em;
+	line-height:3em;
+	left:30%;
+	position:relative;
+}
+#evaluation h4{
+	font-size:1.5em;
+	line-height:2em;
+	color:blue;
+	left:-1em;
+	position:relative;
+}
+#evaluationol>li>ol>li{	
+	font-size:1.2em;
+	line-height:2.4em;		
+	margin-right:0.5em;
+}
+ol.upalpha {list-style-type: upper-alpha}
+
+.advice{
+	text-indent:2em;
+	margin:1em;
+	line-height:2em;
+	display:none; 
+	font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu,"Trebuchet MS","Lucida Grande";
+	font-weight:bold;
+}
+.appetite{
+	font-weight:bold;
+	text-decoration:underline;
+}
+#advice p:first-letter{
+	color:#ff0000;
+	font-size:3em;
+	font-weight:bold;	
+}
+.planningcollapsed{	
+	height:2em;
+	overflow:hidden;
+	width:96%;
+	background-color:#dcdcdc;  
+	border-radius:0.5em;
+	margin:auto;				
+}
+.planning{	
+	height:auto;
+}
+.planningtitle{
+	margin-left:0.5em;
+}
+.planningcollapsed img,.planning img{
+	width:1.2em;
+	height:1.2em;	
+	float:right;
+	margin-top:5px;
+	margin-right:1em;
+}
+.echo{
+	display:inline;
+}
+#fu3guarantee,#bbb_guarantee{
+	display:none;
+	height:auto;
+}
+#lcgh_page2{
+	line-height:2em;
+}
+#lcgh_page2>h2{
+	font-size:2em;
+	width:100%;
+	margin-left:40%;
+}
+.manger span{
+	 padding-left:6em;
+}
+.planningtext{
+	font-size:1.2em;
+	text-indent: 2em;
+}
+.planningtext .parameter{
+	margin-left:1em;
+}
+.txtindent{
+	text-indent: 2em;
+}
+#getguarantee_bbb, #getguarantee_fu3{
+	display:inline;
+	margin-left:2em;
+	font-size:0.8em;
+}
+#container,#container2,#container3,#container5{
+	width:50%;
+	margin-right:33%;
+	min-width:320px;
+	min-height:320px;
+}
+#tab3 div{
+	line-heigth:1.5em;
+	margin-top:8px;
+}
+#tab3 h2{
+	width:25em;
+	margin:auto;
+}

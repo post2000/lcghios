@@ -6,9 +6,9 @@
 	background-color:#f0ffff;
 }
 #container{
-	width:42%;
+	width:32%;
 	min-width:320px;
-	height: 300px;
+	min-height: 300px;
 	/*float:left; 
 	background-color:#d3d3d3;*/
 }
@@ -18,26 +18,26 @@
 	/*float:left; */
 }
 #container2{
-	width:42%;
+	width:32%;
 	min-width:320px;
-	height:300px;
+	min-height:300px;
 	/*float:left; */
 }
 #container3{
-	width:42%;
+	width:32%;
 	min-width:320px;
-	height:300px;
+	min-height:300px;
 	/*float:left; */
 }
 #container4{
-	width:42%;
+	width:32%;
 	height: 300px;
 	/*float:left; */
 	background-color:#f0ffff;
 }
 #container5{
-	width:42%;
+	width:32%;
 	min-width:320px;
-	height:300px;
+	min-height:300px;
 	/*float:left; */
 }

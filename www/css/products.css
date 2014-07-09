@@ -10,7 +10,7 @@ body img{
 }
 .headerbuttons{
 	/* margin:auto; */
-	margin-left:.0.5em;
+	margin-left:0.5em;
 }
 .header{
 	overflow:hidden;
@@ -69,7 +69,6 @@ body img{
 }
 .customertext{
 	font-size:1.2em;
-
 	margin-top:0.2em;
 	font-weight:bold;
 }
@@ -95,29 +94,12 @@ body img{
 	font-size:1.6em;
 }
 .premiumalert{
-	font:"黑体";
+	font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu,"Trebuchet MS","Lucida Grande";
 	font-size:1.5em;
 	color:red;
 	display:none;
 }
-.premiumalert_1{
-	font:"黑体";
-	font-size:1.5em;
-	color:red;
-	display:none;
-}
-.premiumalert{
-	font:"黑体";
-	font-size:1.5em;
-	color:red;
-	display:none;
-}
-.premiumalert{
-	font:"黑体";
-	font-size:1.5em;
-	color:red;
-	display:none;
-}
+
 .echo_bbb_a{
 	display:none;
 }
@@ -157,7 +139,7 @@ body img{
 }
 #getguarantee_fu3{
 	width:5em;
-	font-size:3em;
+	font-size:1.2em;
 	margin:auto;
 }
 #getguarantee_mian2{
@@ -172,12 +154,12 @@ body img{
 }
 #getguarantee_bbb{
 	width:5em;
-	font-size:3em;
+	font-size:1.2em;
 	margin:auto;
 }
 .title{
 	color:red;
-	font:"黑体";
+	font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu,"Trebuchet MS","Lucida Grande";
 	font-weight:bold;
 	padding-top:0.3em;
 }
@@ -246,7 +228,7 @@ body img{
 	font-size:0.8em;
 }
 .parameter{
-	color::#003300;
+	color:#003300;
 	font-weight:bold;
 }
 .prn{

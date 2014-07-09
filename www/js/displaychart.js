@@ -87,7 +87,7 @@ function refreshContainer2(){
 }
 
 function refreshContainer5(){
-	var total=current_diposit+time_disposit;
+	var total=current_diposit+time_deposit;
 	
 	$('#container5').highcharts({
         chart: {
@@ -124,8 +124,8 @@ function refreshContainer5(){
             data: [
                 ['活期<br/>'+ Math.round(current_diposit/total*100)+'%',   current_diposit],	                
                 {
-                    name: '一年或以上定期<br/>'+ Math.round(time_disposit/total*100)+'%',
-                    y: time_disposit,
+                    name: '一年或以上定期<br/>'+ Math.round(time_deposit/total*100)+'%',
+                    y: time_deposit,
                     sliced: true,
                     selected: true
                 }
@@ -144,13 +144,11 @@ function refreshContainer3(){
             enabled:false // 禁用版权信息
        },
         title: {
-            text: '理财方案收益对比'
+            text: '理财方案对比'
         },
-
         xAxis: {
             categories: ['全额储蓄', '全额理财', '定制方案']
         },
-
         yAxis: {
             allowDecimals: false,
             min: 0,
@@ -158,7 +156,6 @@ function refreshContainer3(){
                 text: '收益（单位：万元）'
             }
         },
-
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
@@ -166,30 +163,28 @@ function refreshContainer3(){
                     '总收益: '+ this.point.stackTotal;
             }
         },
-
         plotOptions: {
             column: {
                 stacking: 'normal'
             }
         },
-
         series: [{
-            name: '储蓄利息',
-            data: profits[0],
+            name: '保险保障',
+            data: profits[3],
+            stack: 'male'
+        },{
+            name: '保险分红(不确定)',
+            data: profits[2],
             stack: 'male'
         }, {
             name: '理财收益',
             data: profits[1],
             stack: 'male'
         }, {
-            name: '保险保障',
-            data: profits[2],
+            name: '储蓄利息',
+            data: profits[0],
             stack: 'male'
-        }, {
-            name: '保险分红(不确定)',
-            data: profits[3],
-            stack: 'male'
-        }]
+        } ]
     });
 }
 function refreshContainer4(){
