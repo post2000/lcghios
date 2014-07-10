@@ -29,7 +29,7 @@ function refreshContainer(){
             }
         },
         series: [{
-            name: '配置资金（单位：元）',
+            name: '配置资金（单位：万元）',
             data: [
                 ['储蓄 '+ Math.round(diposit/total*100)+'%', diposit],
                 ['理财 '+ Math.round(fPlanning/total*100)+'%', fPlanning],
@@ -159,8 +159,7 @@ function refreshContainer3(){
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
-                    this.series.name +': '+ this.y +'<br/>'+
-                    '总收益: '+ this.point.stackTotal;
+                    this.series.name +': '+ this.y +'<br/>';
             }
         },
         plotOptions: {
@@ -184,6 +183,17 @@ function refreshContainer3(){
             name: '储蓄利息',
             data: profits[0],
             stack: 'male'
+        }, {
+            type: 'spline',
+            name: '方案收益',
+            data: [profits[3][0]+profits[2][0]+profits[1][0]+profits[0][0], 
+                   profits[3][1]+profits[2][1]+profits[1][1]+profits[0][1],
+                   profits[3][2]+profits[2][2]+profits[1][2]+profits[0][2]],
+            marker: {
+            	lineWidth: 2,
+            	lineColor: Highcharts.getOptions().colors[3],
+            	fillColor: 'white'
+            }
         } ]
     });
 }

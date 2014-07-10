@@ -131,55 +131,30 @@
 				}				
 			});
 			/*理财规划跳转富富余3号*/	
-			$("#getguarantee_fu3").click(function(){
+			$("#getguarantee_fu3").unbind('click').click(function(){
 				//if premiuOK,renew & show page nianbguarantee
-				 i_money_check=bonusPremium*10000;                    //强行赋值,检查函数使用 
 				if(premiumOK_2()){
-					i_age=$("#age_lcgh").val();
-					//i_sex=$("#male").is(':checked') ? 1:0;
-					i_years=6;                                //固定6年
-					i_premium=i_money_check; //old var  is customerinfo[3]
-					 
-					computeGuarantee_fu3();
-					//$.mobile.changePage("#fu3guarantee" );
-					$('#fu3guarantee').show();
-					$('#bbb_guarantee').hide();
+					initfu3();
+					initbbb();
+					$('#fu3guarantee').show();		
+					//$("#fu3guarantee").css("float","left"); //float to ahead of bbb div
+					$('#bbb_guarantee').show();
+					//$("#bbb_guarantee").css("float","none"); //none float display after fu3 div
 					$('#li_product').click(); //show tab3
 				}
-			});
-			
+			});			
 			
 			$("#getguarantee_bbb").unbind('click').click(function(){
 				//if premiuOK,renew & show page nianbguarantee
-				 i_money_check=3000;                      //强行赋值,检查函数使用 
-			 
-				//if(premiumOK_bbb()){
-					i_age=$("#age_lcgh").val();
-					//i_sex=$("#male").is(':checked') ? 1:0;
-					if(i_age>"40")
-					{
-						if(i_age>"60")
-						{
-							alert("超过投保年龄限制");
-							return false;
-						}
-						else
-						{
-							i_years="5";
-						}
-					}
-					else
-					{
-						i_years="5a";
-					}
-					i_liability="A";
-					i_premium=i_money_check; //old var  is customerinfo[3]
-					 
-					computeGuarantee_bbb();
-					//$.mobile.changePage("#bbb_guarantee");
-					$('#fu3guarantee').hide();
-					$('#bbb_guarantee').show();
-					$('#li_product').click(); //show tab3
+				initfu3();
+				initbbb();								
+				$('#bbb_guarantee').show();
+				//$("#bbb_guarantee").css("float","left"); //float to first
+				if(premiumOK_2()){
+					$('#fu3guarantee').show();
+					//$("#fu3guarantee").css("float","none"); //none float to second
+				}
+				$('#li_product').click(); //show tab3
 			});
    });
 		//var diposit=30000,fPlanning=60000,insurance=10000;
@@ -249,7 +224,43 @@
 				refreshContainer5();
 				
 		}
+		function initfu3(){
+			//if premiuOK,renew & show page nianbguarantee
+			 i_money_check=bonusPremium*10000;                    //强行赋值,检查函数使用 
 			
+				i_age=$("#age_lcgh").val();
+				//i_sex=$("#male").is(':checked') ? 1:0;
+				i_years=6;                                //固定6年
+				i_premium=i_money_check; //old var  is customerinfo[3]				 
+				computeGuarantee_fu3();
+		}	
+		function initbbb(){
+			i_money_check=3000;                      //强行赋值,检查函数使用 
+			 
+			//if(premiumOK_bbb()){
+				i_age=$("#age_lcgh").val();
+				//i_sex=$("#male").is(':checked') ? 1:0;
+				if(i_age>"40")
+				{
+					if(i_age>"60")
+					{
+						alert("超过投保年龄限制");
+						return false;
+					}
+					else
+					{
+						i_years="5";
+					}
+				}
+				else
+				{
+					i_years="5a";
+				}
+				i_liability="A";
+				i_premium=i_money_check; //old var  is customerinfo[3]
+				 
+				computeGuarantee_bbb();
+		}
 		
 		function computeGuarantee_fu3(){				
 				 $("#showage_f3").text(i_age);

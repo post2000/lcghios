@@ -48,7 +48,7 @@
 			
 		$(function(){
 			var p = navigator.platform;
-		    if( p.indexOf('Linux') == -1){
+		    if( p.indexOf('Win') >= 0){
 		    	$('.prn').show();		    	
 		    }
 		    else{		    	
