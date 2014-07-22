@@ -1,22 +1,45 @@
    $(function() {
-             $(".content > div:gt(0)").hide();
+	   var tabliclass ='disable' ;     //tabs enable or disable?
+	    	 //set cover img size equals to the window
+	   		 var imgHeight=$(window).height(),imgWidth=$(window).width();
+	   		 $('#cover').height(imgHeight);
+	   		 $('#cover').width(imgWidth);
+	   		 
+	   		 $(".content > div:gt(0)").hide();
              $(".tab li").css("cursor", "pointer");
              $(".tab li").hover(function() {
-                 $(this).addClass("tab_current");
+                 tabliclass=$(this).attr('class');
+            	 if( tabliclass.indexOf('disable') == -1 ){ //Can be set to current when not in disable state. 
+                	 $(this).addClass("tab_current");
+                 }
              }, function() {
                  $(this).removeClass("tab_current");
              }).click(
                  function() {
-                     $(this).addClass("tab_selected").siblings().removeClass("tab_selected");
-                     $(".content > div").eq($(this).index()).siblings().hide().end().show();
+                	 tabliclass=$(this).attr('class');
+                	 if( tabliclass.indexOf('disable') == -1 ){ //Can be clicked when not in disable state. 
+                		 $(this).addClass("tab_selected").siblings().removeClass("tab_selected");
+                         $(".content > div").eq($(this).index()).siblings().hide().end().show();
+                     }                	 
                  }
              );
+             $('#cover').click(function(){
+            	$(this).animate({height:'hide',width:'hide'},
+            					'slow',
+            					function(){
+            							$('#tabcontainer').show();
+            		
+            	}); 
+             });
              $("#guihua_next_a").click(function(){
 					i_money_check=$("#money_input").val();
 					if(premiumOK_lcgh()){
 						i_money_all=$("#money_input").val();		
 						//computeGuarantee_lcgh();  //moved into  $('#li_lcgh').click();
+						//set li_lcgh tab enabled
+						$('#li_lcgh').removeClass('disable');
 						//$.mobile.changePage( "#lcgh_page2" );
+						
 						$('#li_lcgh').click();
 					}
 			});
@@ -136,6 +159,9 @@
 				if(premiumOK_2()){
 					initfu3();
 					initbbb();
+					//set tab enabled
+					$('#li_product').removeClass('disable');
+					
 					$('#fu3guarantee').show();		
 					//$("#fu3guarantee").css("float","left"); //float to ahead of bbb div
 					$('#bbb_guarantee').show();
@@ -148,6 +174,9 @@
 				//if premiuOK,renew & show page nianbguarantee
 				initfu3();
 				initbbb();								
+				//set tab enabled
+				$('#li_product').removeClass('disable');
+				
 				$('#bbb_guarantee').show();
 				//$("#bbb_guarantee").css("float","left"); //float to first
 				if(premiumOK_2()){
@@ -156,6 +185,36 @@
 				}
 				$('#li_product').click(); //show tab3
 			});
+			//use hammer.js,the application will respone to gesture,such as tap touch swipe doubletouch
+
+			//var hammer1 = new Hammer(document.getElementById("tab1"), { drag_max_touches: 0});
+			var hammer2 = new Hammer(document.getElementById("tab2"), { drag_max_touches: 0, prevent_default: true });
+			var hammer3 = new Hammer(document.getElementById("tab3"), { drag_max_touches: 0, prevent_default: true });
+			
+			/*
+			hammer1.on("swipeleft", function(ev) {	//swipeleft,pull to show tab2	        
+				//alert('tab1 swipe left');
+				//ev.stopPropagation();
+				$("#guihua_next_a").click(); //if ok ,show tab2 after refresh values
+		    });
+		    */
+			hammer2.on("swiperight", function(ev) {	//swiperight,pull to show tab1	        
+				//alert('swiperight');
+				var $prevLi=$('.tab li.tab_selected').prev();
+				$prevLi.click();
+				//ev.stopPropagation();
+		    });
+			hammer2.on("swipeleft", function(ev) {	//swipeleft,pull to show tab3	        
+				//alert('tab2 swipeleft');
+				$("#getguarantee_fu3").click();
+				//ev.stopPropagation();
+		    });			
+			hammer3.on("swiperight", function(ev) {	//swiperight,pull to show tab2	        
+				//alert('tab3 swiperight');
+				var $prevLi=$('.tab li.tab_selected').prev();
+				$prevLi.click();
+				//ev.stopPropagation();				
+		    });			
    });
 		//var diposit=30000,fPlanning=60000,insurance=10000;
 		//var customer="李先生";
@@ -206,13 +265,14 @@
 				var profit_d_all=i_money_all*0.0075*10000;         //全额储蓄收益
 				var profit_f_all=i_money_all*0.042*10000 ;          //全额理财收益				
 				var dividends=Math.round((profit_f_all-profit_d-profit_f)*2*100)/100;                //保险分红收益
-				var insuranceguarantee=insurance*6;
+				var insuranceguarantee=insurance*1;
 				//理财方案对比柱状图,children arr are layers of profits,3 columns per layer:
 				//layer0 profits[0]: deposit profit
 				//layer1 profits[1]: finacial profit
 				//layer2 profits[2]: insurance dividends
 				//layer3 profits[3]: insurance
-				profits=[ [profit_d_all/10000, 0, profit_d/10000],[0, profit_f_all/10000, profit_f/10000],[0, 0, dividends/10000],[0, 0, insuranceguarantee]];      
+				profits=[ [profit_d_all/10000, 0, profit_d/10000],[0, profit_f_all/10000, profit_f/10000],
+				          [0, 0, dividends/10000],[0, 0, insuranceguarantee]];      
 			
 				
 				//insuranceProfits=[[5, 3, 4, 7],[2, 2, 3, 2],[3, 4, 4, 2]];              //保险保障利益演示图

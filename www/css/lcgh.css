@@ -13,8 +13,16 @@ div,ul{
 	padding:0; 
 	margin:0;
 }
+
+#cover{
+	position:absolute;
+	z-index:999;
+	left:0;
+	top:0;	
+}
 #tabcontainer{ 	
 	margin:0.5em;
+	display:none;
 }
 .tab{
 	padding:0;
@@ -32,7 +40,10 @@ div,ul{
  	width:9em; 
  	text-align:center;
  	border-top-left-radius:0.5em;
- 	border-top-right-radius:0.5em;
+ 	border-top-right-radius:0.5em; 	
+}
+.disable{
+	color:#c0c0c0;
 }
 .content{ 
 	float:none;         	
@@ -53,13 +64,14 @@ div,ul{
 	border-bottom:0px; 
 	bottom:-2px; 
 	position:relative; 
-	z-index:999;
+	z-index:99;
+	color:#black;
 }
 .tab_current{
 	text-decoration:underline;
 }
 #tab1{
-	line-height:200%;
+	line-height:200%;	
 }
 #tab1 input[type=text],input[type=number]{
 	font-size:1.1em;
@@ -231,6 +243,16 @@ ol.upalpha {list-style-type: upper-alpha}
 	min-height:320px;
 	/* background-color:grey; */
 }
+#columnimg{
+	width:100%;	
+	
+}
+#columnimg img{
+	width:50%;
+	min-width:20em;
+	margin:auto;
+	/* background-color:#e0e0e0; */
+}
 #tab3{
 	padding:0.5em;
 }
@@ -241,4 +263,16 @@ ol.upalpha {list-style-type: upper-alpha}
 
 #tab3 h2{	
 	margin:auto;	
+}
+.tmp{
+	color:#7cb5ec;
+	color:#434348;
+	color:#90ed7d;
+	color:#f7a35c;
+	color:#8085e9;
+	color:#f15c80;
+	color:#e4d354;
+	color:#8085e8;
+	color:#8d4653;
+	color:#91e8e1;
 }

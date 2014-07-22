@@ -38,7 +38,7 @@ Highcharts.theme = {
 		}
 	},
 	xAxis: {
-		gridLineWidth: 1,
+		gridLineWidth: 0.5,
 		labels: {
 			style: {
 				fontSize: '12px'
@@ -46,7 +46,7 @@ Highcharts.theme = {
 		}
 	},
 	yAxis: {
-		minorTickInterval: 'auto',
+		minorTickInterval: 1 , //'auto',
 		title: {
 			style: {
 				textTransform: 'uppercase'
@@ -60,7 +60,7 @@ Highcharts.theme = {
 	},
 	plotOptions: {
 		candlestick: {
-			lineColor: '#404048'
+			lineColor:  '#404048'
 		}
 	},
 

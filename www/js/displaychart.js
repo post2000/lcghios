@@ -156,6 +156,7 @@ function refreshContainer3(){
                 text: '收益（单位：万元）'
             }
         },
+        colors: ['#dedede','#7cb5ec', '#90ed7d', '#f7a35c'],
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
@@ -172,7 +173,7 @@ function refreshContainer3(){
             data: profits[3],
             stack: 'male'
         },{
-            name: '保险分红(不确定)',
+            name: '保险分红',
             data: profits[2],
             stack: 'male'
         }, {
@@ -183,18 +184,21 @@ function refreshContainer3(){
             name: '储蓄利息',
             data: profits[0],
             stack: 'male'
-        }, {
+        },/* {
             type: 'spline',
-            name: '方案收益',
+            name: '方案收益',            
+            
             data: [profits[3][0]+profits[2][0]+profits[1][0]+profits[0][0], 
                    profits[3][1]+profits[2][1]+profits[1][1]+profits[0][1],
                    profits[3][2]+profits[2][2]+profits[1][2]+profits[0][2]],
+            
             marker: {
-            	lineWidth: 2,
+            	lineWidth: 1,
             	lineColor: Highcharts.getOptions().colors[3],
-            	fillColor: 'white'
+            	fillColor: 'white',
+            	symbol: null
             }
-        } ]
+        } */ ]
     });
 }
 function refreshContainer4(){
