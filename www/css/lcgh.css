@@ -70,6 +70,12 @@ div,ul{
 .tab_current{
 	text-decoration:underline;
 }
+#tab0 > div:first-child{
+	text-indent:2em;
+	line-height:200%;	
+	width:95%;
+	margin:auto;
+}
 #tab1{
 	line-height:200%;	
 }
@@ -115,46 +121,55 @@ fieldset{
 	background-color:grey;
 	color:white;
 }
-#btnstartevalu{
-	left:1em;	
+#btnstartevalu{	
+	border:solid 1px grey;
+	background-color:#dcdcdc;	
+	display:inline;
+	font-size:1em;
+	border-radius:3px;
+}
+#btnstartevaluOld{
+	display:none;
+	left:0.5em;	
 	position:relative;
 	font-size:1em;
 }
-#evaluation{
+#evaluation,#evaluationOld{
 	width:90%;
 	/* height:123em; */
 	background-color:#dcdcdc;	
 	border-radius:0.5em;
 	z-index:999;
 	position:relative;	
-	top:1em;
+	top:0.5em;
 	padding:0.5em 0.5em 0.5em 2.5em;
 	margin:auto;
-	margin-bottom:1em;
-	display:none; 
+	margin-bottom:2em;		
+}
+#evaluationOld{
+	display:none;
 }
 #evaluation h3{ 
 	font-size:2em;
 	line-height:3em;
 	left:30%;
-	position:relative;
-	
+	position:relative;	
 }
 #evaluation h4{
-	font-size:1.5em;
+	font-size:1.2em;
 	line-height:2em;
 	color:blue;
 	left:-1em;
 	position:relative;
 }
 #evaluationol>li>ol>li{	
-	font-size:1.2em;
+	font-size:1.1em;
 	line-height:2.4em;		
 	margin-right:0.5em;
 }
 ol.upalpha {list-style-type: upper-alpha}
 
-.advice{
+.advice,.adviceOld{
 	text-indent:2em;
 	margin:1em;
 	line-height:2em;

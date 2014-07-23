@@ -30,96 +30,17 @@
 	<div id="tabcontainer">       
 	       <div class="tab">
 	            <ul>
-	                <li class="tab_selected" id='li_base'>基本信息</li>	               
-	                <li class="disable" id='li_lcgh'>理财规划</li>
-	                <li class="disable" id='li_product'>产品详情</li>
+	                 
+	                <li id='riskappitate' class="tab_selected" >风险偏好</li>	
+	                <li id='li_base' class="enable">基本信息</li>	               
+	                <li id='li_lcgh'  class="disable">理财规划</li>
+	                <li id='li_product' class="disable">产品详情</li>
 	            </ul>
 	       </div>
 	       <div class="content">
-	            <div id='tab1'>		
-					<div class="information">姓 名 ：</div><input id="name" type="text" />					
-					<div class='ui-field-contain'>							
-						<div id='sex' class="ui-field-contain">
-						<form onclick="">
-	  						<fieldset data-role="controlgroup">	
-	                            <input type="radio" name="sex" id="male" value="先生"  checked="checked" />
-                               	<label for="male" >先生</label>
-                               	<input type="radio" name="sex" id="female" value="女士"/>
-                               	<label for="female" >女士  </label>                                	
-	                    	</fieldset>
-	                    </form>
-	                    </div>  
-					</div>
-					
-					<div class='divclearboth'></div>					
-					<div class="information">年 龄 ：</div> <input id="age_lcgh" type="number"  value="25" min="0" max="70" />                   	
-	                <div class='divclearboth'></div>		          
-					
-					<div class="information">职 业 ：</div>                    
-                    <div class="ui-field-contain">
-  						<form onclick=""><fieldset data-role="controlgroup">	
-                            <input type="radio" name="zhiye" id="gongxin" value="A"  checked="checked" />
-                              	<label for="gongxin" data-mini="true">A:工薪</label>
-                              	<input type="radio" name="zhiye" id="laoban" value="B"/>
-                              	<label for="laoban" data-mini="true">B:老板  </label> 
-							<input type="radio" name="zhiye" id="nonghu" value="C"   />
-                              	<label for="nonghu" data-mini="true">C:农户</label>
-                              	<input type="radio" name="zhiye" id="ziyou" value="D"/>
-                              	<label for="ziyou" data-mini="true">D:自由职业者  </label>                               	
-                    	</fieldset></form>
-                    </div>
-                    
-					<div class="information">年 收 入：</div>
-                    <div class="ui-field-contain">
-  						<form onclick=""><fieldset data-role="controlgroup">	
-                            <input type="radio" name="shouru" id="shouru_a" value="A"  checked="checked" />
-                              	<label for="shouru_a" data-mini="true">A:5万以下</label>
-                              	<input type="radio" name="shouru" id="shouru_b" value="B" />
-                              	<label for="shouru_b" data-mini="true">B:5-10万  </label> 
-							<input type="radio" name="shouru" id="shouru_c" value="C"  />
-                              	<label for="shouru_c" data-mini="true">C:10-20万</label>
-                              	<input type="radio" name="shouru" id="shouru_d" value="D"/>
-                              	<label for="shouru_d" data-mini="true">D:20-50万  </label>    
-							<input type="radio" name="shouru" id="shouru_e" value="E"/>
-                              	<label for="shouru_e" data-mini="true">E:50万以上  </label>    
-                    	</fieldset></form>
-                    </div>
-                   
-					<div class="information">家庭结构：</div>
-                    <div class="ui-field-contain">
-  						<form onclick=""><fieldset data-role="controlgroup">	
-                            <input type="radio" name="jiegou" id="jiegou_a" value="A"  checked="checked" />
-                              	<label for="jiegou_a" data-mini="true">A:单身</label>
-                              	<input type="radio" name="jiegou" id="jiegou_b" value="B" />
-                              	<label for="jiegou_b" data-mini="true">B:已婚未有孩子  </label> 
-							<input type="radio" name="jiegou" id="jiegou_c" value="C"  />
-                              	<label for="jiegou_c" data-mini="true">C:已婚育有一孩</label>
-                              	<input type="radio" name="jiegou" id="jiegou_d" value="D"/>
-                              	<label for="jiegou_d" data-mini="true">D:已婚育有二孩及以上  </label>    
-							<input type="radio" name="jiegou" id="jiegou_e" value="E"/>
-                              	<label for="jiegou_e" data-mini="true">E:子女已独立  </label>    
-                    	</fieldset></form>
-                    </div>
-                   					
-					<div class="information">风险偏好：</div>
-                    <div class="ui-field-contain">
-  						<fieldset data-role="controlgroup" id="formpianhao">	
-	  						<div id='riskappetitetitle'>	  						
-	                            <input type="radio" name="pianhao" id="pianhao_a" value="A"  checked="checked" />
-	                              	<label for="pianhao_a" data-mini="true" onclick="">A:保守型</label>
-	                            <input type="radio" name="pianhao" id="pianhao_b" value="B" />
-	                              	<label for="pianhao_b" data-mini="true" onclick="">B:轻度保守型  </label> 
-								<input type="radio" name="pianhao" id="pianhao_c" value="C"  />
-	                              	<label for="pianhao_c" data-mini="true" onclick="">C:中立型</label>
-	                            <input type="radio" name="pianhao" id="pianhao_d" value="D"/>
-	                              	<label for="pianhao_d" data-mini="true" onclick="">D:轻度进取型  </label>    
-								<input type="radio" name="pianhao" id="pianhao_e" value="E"/>
-	                              	<label for="pianhao_e" data-mini="true" onclick="">E:进取型  </label>                            
-	                             <button id="btnstartevalu">风险偏好评估</button>   
-	                    	</div>
-                    	</fieldset>                    	
-                    	<div id='evaluation'>
-                    		 <h3>风险偏好评估</h3>
+	            <div id ='tab0'>
+	            	<div>人们的理财的风险偏好可以分为五种类型，分别是保守型、轻度保守型、中立型、轻度进取型和进取型。为更好地为您进行资产配置，我们建议您进行<input type ="button" id='btnstartevalu' value='风险偏好评测' /></div>
+	            	<div id='evaluation'>                    		 
                     		 <form onclick="">
                     		 <ol  id='evaluationol'>
                     		 	<li id="li_eval_age"><h4>您现在的年龄:</h4>
@@ -266,6 +187,265 @@
                     	</div> <!-- end of evaluation div -->
                     	<div id='sugestion'>
 	                    	<div class='advice'>
+	                    		<p>根据您的测评结果，您属于<span class="appetite">保守型</span>。
+	                    		您对风险持谨慎的态度，希望保护本金不受损失，并保持资产的流动性。</p>
+								<p>从专业理财角度，需要提醒您关注的是，您需要加强资产保值增值的理财手段，通过一些保本且稳定收益的理财工具，如本金保证型的人民币理财产品，并增加一部分保险保障，强化资产收益能力，并给家庭足够的保障。</p>
+	                    	</div>
+	                    	<div class='advice'>
+	                    		<p>根据您的测评结果，您属于<span class="appetite">轻度保守型</span>。
+	                    		您对风险持较为谨慎的态度，能够承担较低的风险，希望在本金有一定保障的前提下，获得一定的收益。</p>
+								<p>从专业理财角度，需要提醒您关注的是，您需要进一步加强资产保值增值的理财手段，选取一些风险不大且稳定收益的理财工具，如本金保证型的人民币理财产品，并增加一部分保险保障，强化资产收益能力，并给家庭足够的保障。</p>
+	                    	</div>
+	                    	<div class='advice'>
+	                    		<p>根据您的测评结果，您属于<span class="appetite">中立型</span>。
+	                    		您对风险和收益持较为均衡的态度，愿意在风险可控的情况下获得与风险程度匹配的收益。</p>
+								<p>从专业理财角度，需要提醒您关注的是，您需要进一步加强资产保值增值的理财手段，选取一些风险可控且收益较高的理财工具，如非本金保证型的人民币理财产品，
+								与原有的固定收益类理财工具搭配，并增加一部分保险保障，强化资产收益能力，并给家庭足够的保障。</p>
+	                    	</div>
+	                    	<div class='advice'>
+	                    		<p>根据您的测评结果，您属于<span class="appetite">轻度进取型</span>。
+	                    		您对风险持较为乐观的态度，愿意承受一定的风险，通过投资获得资产的保值增值。</p>
+								<p>从专业理财角度，需要提醒您关注的是，您需要加强资产的安全性和流动性，通过补充一些保本且稳定收益的理财工具，同时以储蓄方式保留一部分现金，并增加一部分保险保障，
+								强化资产保本的同时增加流动性以防临时开支，并给家庭足够的保障。</p>
+	                    	</div>
+	                    	<div class='advice'>
+	                    		<p>根据您的测评结果，您属于<span class="appetite">进取型</span>。
+	                    		您对风险持乐观的态度，希望保护本金不受损失，并保持资产的流动性。</p>
+								<p>从专业理财角度，需要提醒您关注的是，您需要加强资产的安全性和流动性，通过补充一些保本且稳定收益的理财工具，同时以储蓄方式保留一部分现金，并增加一部分保险保障，
+								强化资产保本的同时增加流动性以防临时开支，并给家庭足够的保障。</p>
+	                    	</div>
+                    	</div>
+	            </div>
+	            <div id='tab1'>		
+					<div class="information">姓 名 ：</div><input id="name" type="text" />					
+					<div class='ui-field-contain'>							
+						<div id='sex' class="ui-field-contain">
+						<form onclick="">
+	  						<fieldset data-role="controlgroup">	
+	                            <input type="radio" name="sex" id="male" value="先生"  checked="checked" />
+                               	<label for="male" >先生</label>
+                               	<input type="radio" name="sex" id="female" value="女士"/>
+                               	<label for="female" >女士  </label>                                	
+	                    	</fieldset>
+	                    </form>
+	                    </div>  
+					</div>
+					
+					<div class='divclearboth'></div>					
+					<div class="information">年 龄 ：</div> <input id="age_lcgh" type="number"  value="25" min="0" max="70" />                   	
+	                <div class='divclearboth'></div>		          
+					
+					<div class="information">职 业 ：</div>                    
+                    <div class="ui-field-contain">
+  						<form onclick=""><fieldset data-role="controlgroup">	
+                            <input type="radio" name="zhiye" id="gongxin" value="A"  checked="checked" />
+                              	<label for="gongxin" data-mini="true">A:工薪</label>
+                              	<input type="radio" name="zhiye" id="laoban" value="B"/>
+                              	<label for="laoban" data-mini="true">B:老板  </label> 
+							<input type="radio" name="zhiye" id="nonghu" value="C"   />
+                              	<label for="nonghu" data-mini="true">C:农户</label>
+                              	<input type="radio" name="zhiye" id="ziyou" value="D"/>
+                              	<label for="ziyou" data-mini="true">D:自由职业者  </label>                               	
+                    	</fieldset></form>
+                    </div>
+                    
+					<div class="information">年 收 入：</div>
+                    <div class="ui-field-contain">
+  						<form onclick=""><fieldset data-role="controlgroup">	
+                            <input type="radio" name="shouru" id="shouru_a" value="A"  checked="checked" />
+                              	<label for="shouru_a" data-mini="true">A:5万以下</label>
+                              	<input type="radio" name="shouru" id="shouru_b" value="B" />
+                              	<label for="shouru_b" data-mini="true">B:5-10万  </label> 
+							<input type="radio" name="shouru" id="shouru_c" value="C"  />
+                              	<label for="shouru_c" data-mini="true">C:10-20万</label>
+                              	<input type="radio" name="shouru" id="shouru_d" value="D"/>
+                              	<label for="shouru_d" data-mini="true">D:20-50万  </label>    
+							<input type="radio" name="shouru" id="shouru_e" value="E"/>
+                              	<label for="shouru_e" data-mini="true">E:50万以上  </label>    
+                    	</fieldset></form>
+                    </div>
+                   
+					<div class="information">家庭结构：</div>
+                    <div class="ui-field-contain">
+  						<form onclick=""><fieldset data-role="controlgroup">	
+                            <input type="radio" name="jiegou" id="jiegou_a" value="A"  checked="checked" />
+                              	<label for="jiegou_a" data-mini="true">A:单身</label>
+                              	<input type="radio" name="jiegou" id="jiegou_b" value="B" />
+                              	<label for="jiegou_b" data-mini="true">B:已婚未有孩子  </label> 
+							<input type="radio" name="jiegou" id="jiegou_c" value="C"  />
+                              	<label for="jiegou_c" data-mini="true">C:已婚育有一孩</label>
+                              	<input type="radio" name="jiegou" id="jiegou_d" value="D"/>
+                              	<label for="jiegou_d" data-mini="true">D:已婚育有二孩及以上  </label>    
+							<input type="radio" name="jiegou" id="jiegou_e" value="E"/>
+                              	<label for="jiegou_e" data-mini="true">E:子女已独立  </label>    
+                    	</fieldset></form>
+                    </div>
+                   					
+					<div class="information">风险偏好：</div>
+                    <div class="ui-field-contain">
+  						<fieldset data-role="controlgroup" id="formpianhao">	
+	  						<div id='riskappetitetitle'>	  						
+	                            <input type="radio" name="pianhao" id="pianhao_a" value="A"  checked="checked" />
+	                              	<label for="pianhao_a" data-mini="true" onclick="">A:保守型</label>
+	                            <input type="radio" name="pianhao" id="pianhao_b" value="B" />
+	                              	<label for="pianhao_b" data-mini="true" onclick="">B:轻度保守型  </label> 
+								<input type="radio" name="pianhao" id="pianhao_c" value="C"  />
+	                              	<label for="pianhao_c" data-mini="true" onclick="">C:中立型</label>
+	                            <input type="radio" name="pianhao" id="pianhao_d" value="D"/>
+	                              	<label for="pianhao_d" data-mini="true" onclick="">D:轻度进取型  </label>    
+								<input type="radio" name="pianhao" id="pianhao_e" value="E"/>
+	                              	<label for="pianhao_e" data-mini="true" onclick="">E:进取型  </label>                            
+	                             <button id="btnstartevaluOld">风险偏好评估</button>   
+	                    	</div>
+                    	</fieldset>                    	
+                    	<div id='evaluationOld'>
+                    		 <h3>风险偏好评估</h3>
+                    		 <form onclick="">
+                    		 <ol  id='evaluationol'>
+                    		 	<li id="li_eval_age"><h4>您现在的年龄:</h4>
+                    		 		<ol class="upalpha">                    		 			
+                    		 			<li><label><input type="radio" name="eval_age"  value=1  checked="checked" />
+                    		 				61岁以上</label></li>
+                    		 			<li><label><input type="radio" name="eval_age" value=2 />
+                    		 				46-60岁</label></li>
+                    		 			<li><label ><input type="radio" name="eval_age"  value=3 />
+                    		 				36-45岁</label></li>
+                    		 			<li><label ><input type="radio" name="eval_age"  value=4 />
+                    		 				26-35岁</label></li>
+                    		 			<li><label ><input type="radio" name="eval_age"  value=5 />
+                    		 				25岁以下</label></li>
+                    		 		</ol>
+                    		 	</li>                    		 	
+                    		 	<li><h4>您的健康状况如何:</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li><label><input type="radio" name="eval_health" value=1  checked="checked" />
+                    		 				一直都不是很好,要经常吃药和去医院</label></li>
+                    		 			<li><label><input type="radio" name="eval_health" value=2 />
+                    		 				有点不好,不过目前还没什么大问题, 我担心当我老了的时候会变的恶劣</label></li>
+                    		 			<li><label><input type="radio" name="eval_health" value=3 />
+                    		 				至少现在还行,不过我家里人有病史</label></li>
+                    		 			<li><label><input type="radio" name="eval_health" value=4 />
+                    		 				还行, 没大毛病</label></li>
+                    		 			<li><label><input type="radio" name="eval_health" value=5 />
+                    		 				非常好</label></li>
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>是否有过投资股票、基金或债券的经历？</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_invested" value=1  checked="checked" />
+                    		 				没有</label></li>
+                    		 			<li><label><input type="radio" name="eval_invested" value=2 />
+                    		 				有，少于3年</label></li>
+                    		 			<li><label><input type="radio" name="eval_invested" value=3 />
+                    		 				有，3－5年</label></li>
+                    		 			<li><label><input type="radio" name="eval_invested" value=4 />
+                    		 				有，超过5年</label></li>                    		 			
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>您目前投资的主要目的是？</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_goal" value=1  checked="checked" />
+                    		 				确保资产的安全性，同时获得固定收益</label></li>
+                    		 			<li><label><input type="radio" name="eval_goal" value=2 />
+                    		 				希望投资能获得一定的增值，同时获得波动适度的年回报</label></li>
+                    		 			<li><label><input type="radio" name="eval_goal" value=3 />
+                    		 				倾向于长期的成长，较少关心短期的回报和波动</label></li>
+                    		 			<li><label><input type="radio" name="eval_goal" value=4 />
+                    		 				只关心长期的高回报，能够接受短期的资产价值波动</label></li>
+                    		 			
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>您投资的总额占您个人（或家庭）总资产（含房产等）的:</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_scale" value=1  checked="checked" />
+                    		 				低于10%</label></li>
+                    		 			<li><label><input type="radio" name="eval_scale" value=2 />
+                    		 				10%-25%</label></li>
+                    		 			<li><label><input type="radio" name="eval_scale" value=3 />
+                    		 				25%-40%</label></li>
+                    		 			<li><label><input type="radio" name="eval_scale" value=4 />
+                    		 				40%-55%</label></li>
+                    		 			<li><label><input type="radio" name="eval_scale" value=5 />
+                    		 				55%以上</label></li>
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>您预期的投资期限是:</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_timelimit" value=1  checked="checked" />
+                    		 				少于1年</label></li>
+                    		 			<li><label><input type="radio" name="eval_timelimit" value=2 />
+                    		 				1-3年</label></li>
+                    		 			<li><label><input type="radio" name="eval_timelimit" value=3 />
+                    		 				3-5年</label></li>
+                    		 			<li><label><input type="radio" name="eval_timelimit" value=4 />
+                    		 				5-10年</label></li>
+                    		 			<li><label><input type="radio" name="eval_timelimit" value=5 />
+                    		 				10年以上</label></li>
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li id='li_eval_facerisk'><h4>在您投资60天后，价格下跌20%。假设所有基本面均未改变，您会怎么做?</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_facerisk" value=1  checked="checked" />
+                    		 				为避免更大的担忧，全部卖掉再试试其他的</label></li>
+                    		 			<li><label><input type="radio" name="eval_facerisk" value=2 />
+                    		 				先卖掉一部分，其余等着看看</label></li>
+                    		 			<li><label><input type="radio" name="eval_facerisk" value=3 />
+                    		 				什么也不做，静等收回投资</label></li>
+                    		 			<li><label><input type="radio" name="eval_facerisk" value=4 />
+                    		 				再买入。它曾是好的投资，现在也是便宜的投资。</label></li>                    		 			
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>您有没有想过如果有一天您的财务状况发生很大的变化,比如说突然有一笔很大的开支,这笔开支可能会动用您10%的个人资产或甚至更多:</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_worryaboutrisk" value=1  checked="checked" />
+                    		 				没想过, 我感觉这种大变化不会在我身上发生</label></li>
+                    		 			<li><label><input type="radio" name="eval_worryaboutrisk" value=2 />
+                    		 				经常想, 我很担心整个生活都将变得一团糟,可是我又有什么办法呢?</label></li>
+                    		 			<li><label><input type="radio" name="eval_worryaboutrisk" value=3 />
+                    		 				想过一两次, 感觉挺可怕的</label></li>
+                    		 			<li><label><input type="radio" name="eval_worryaboutrisk" value=4 />
+                    		 				曾经有想过一两次,但是我还年轻，无所谓的</label></li>
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>您对您目前的财务状况满意吗？</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_satisfied" value=1  checked="checked" />
+                    		 				不太好, 常常要借钱</label></li>
+                    		 			<li><label><input type="radio" name="eval_satisfied" value=2 />
+                    		 				刚刚好, 我要特别小心打理</label></li>
+                    		 			<li><label><input type="radio" name="eval_satisfied" value=3 />
+                    		 				我做的还行,一直按照我人生的规划在顺利进行</label></li>
+                    		 			<li><label><input type="radio" name="eval_satisfied" value=4 />
+                    		 				特别好, 现在想买什么就买什么</label></li>
+                    		 		</ol>
+                    		 	</li>
+                    		 	<li><h4>当您退休后,您计划做什么？</h4>
+                    		 		<ol class="upalpha">
+                    		 			<li>
+                    		 				<label><input type="radio" name="eval_retireplan" value=1  checked="checked" />
+                    		 				节俭的生活, 避免把钱花光</label></li>
+                    		 			<li><label><input type="radio" name="eval_retireplan" value=2 />
+                    		 				继续工作挣钱, 因为我的养老金估计不够用</label></li>
+                    		 			<li><label><input type="radio" name="eval_retireplan" value=3 />
+                    		 				享受人生,周游世界</label></li>
+                    		 			<li><label><input type="radio" name="eval_retireplan" value=4 />
+                    		 				努力花钱,直到去见上帝之前还要给上帝带上一件最奢侈的礼物</label></li>
+                    		 		</ol>
+                    		 	</li>
+                    		 </ol>
+                    		 </form>
+                    		<button id="btnsubmitevalu">提 交</button>
+                    		
+                    	</div> <!-- end of evaluationOld div -->
+                    	<div id='sugestionOld'>
+	                    	<div class='advice'>
 	                    		<p>人们的理财的风险偏好可以分为五种类型，分别是保守型、轻度保守型、中立型、轻度进取型和进取型。根据您的测评结果，您属于<span class="appetite">保守型</span>。
 	                    		您对风险持谨慎的态度，希望保护本金不受损失，并保持资产的流动性。</p>
 								<p>从专业理财角度，需要提醒您关注的是，您需要加强资产保值增值的理财手段，通过一些保本且稳定收益的理财工具，如本金保证型的人民币理财产品，并增加一部分保险保障，强化资产收益能力，并给家庭足够的保障。</p>
@@ -357,19 +537,22 @@
 								<div class="customertext">(1)意外或健康保障产品：</div>
 								<div class="planningtext">配置额度：<span class="parameter">0.3</span>万元</div>
 								<div class="planningtext">配置目的：抵御意外或疾病风险,为家庭保驾护航</div>
-								<div class="planningtext">推荐产品：中邮年年好百倍保两全保险<input type="button" id="getguarantee_bbb" value='保障详情'></input></div><br/>
+								<div class="planningtext">推荐产品：中邮年年好百倍保两全保险
+									<!-- <input type="button" id="getguarantee_bbb" value='保障详情'></input> --></div>
 								
 								<div class="customertext">(2)分红型产品：</div>
 								<div class="planningtext">配置额度：<span class="parameter" id="money_bonusPremium"></span>万元</div>
 								<div class="planningtext">配置目的：强制储蓄,累积财富,并享受分红所带来的资产保值增值,同时能够获得高额的人身保障</div>
-								<div class="planningtext">推荐产品：中邮富富余3号分红险<input type="button" id="getguarantee_fu3" value='保障详情'></input></div>
+								<div class="planningtext">推荐产品：中邮富富余3号分红险<br/>								
+									<input type="button" id="getguarantee_fu3" value='保障详情'></input>
+								</div>
 							</div>							
 							<div class="customertext">4.其他建议</div>
 							<div class="coveragetext txtindent">建议您申请邮政储蓄银行信用卡作为日常消费的主要支付手段,这样不仅安全可靠,享受短期借贷的免息期,最重要的是银行的信用卡对账单还可以免费帮您记账,
 									利用控制家庭财务支出。此外也可以将信用卡作为紧急支付和大额支付的一种手段,如此便可以减少应急资金的储备,转而将资金投放在收益更高的其他金融资产上。</div>
 							<div class="customertext">5.理财方案对比</div>
 							<div id='columnimg'><img src= "img/lcgh-column.png" ></div>
-							<div id="container3" ></div>	
+							<!-- <div id="container3" ></div>	 -->
 							
 							<div class="alert">本计划书收益及保障仅供参考，具体实际数值以相关协议、合同为准。</div><hr/>
 					        <div class="manger">理财经理：<span>服务电话：</span></div>

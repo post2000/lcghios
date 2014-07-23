@@ -48,7 +48,13 @@
              });
              $('#btnstartevalu').click(function(){
             	 //set age radio of evaluation test
-            	 var age=$('#age_lcgh').val()*1;
+            	 var age=$('#age_lcgh').val();
+            	 if (age==null||age==""||isNaN(age)){
+            		 age=30;
+            	 }
+            	 else{
+            		 age=age*1 ;//turn to number
+            	 }
             	 var ageradioindex=0;
             	 //61岁以上;46-60岁;36-45岁;26-35岁;25岁以下(A\B\C\D\E)
             	 if(age>60){
@@ -156,9 +162,9 @@
 			/*理财规划跳转富富余3号*/	
 			$("#getguarantee_fu3").unbind('click').click(function(){
 				//if premiuOK,renew & show page nianbguarantee
-				if(premiumOK_2()){
-					initfu3();
-					initbbb();
+				initfu3();
+				initbbb();
+				if(premiumOK_2()){					
 					//set tab enabled
 					$('#li_product').removeClass('disable');
 					
@@ -187,17 +193,24 @@
 			});
 			//use hammer.js,the application will respone to gesture,such as tap touch swipe doubletouch
 
-			//var hammer1 = new Hammer(document.getElementById("tab1"), { drag_max_touches: 0});
-			var hammer2 = new Hammer(document.getElementById("tab2"), { drag_max_touches: 0, prevent_default: true });
-			var hammer3 = new Hammer(document.getElementById("tab3"), { drag_max_touches: 0, prevent_default: true });
+			var hammer0 = new Hammer(document.getElementById("tab0"), { drag_max_touches: 0});
+			var hammer1 = new Hammer(document.getElementById("tab1"), { drag_max_touches: 0});
+			var hammer2 = new Hammer(document.getElementById("tab2"), { drag_max_touches: 0});
+			var hammer3 = new Hammer(document.getElementById("tab3"), { drag_max_touches: 0});
 			
-			/*
+			hammer0.on("swipeleft", function(ev) {	//swipeleft,pull to show tab1	
+				var $nextLi=$('.tab li.tab_selected').next();
+				$nextLi.click();
+		    });
+			hammer1.on("swiperight", function(ev) {	//swiperight,pull to show tab0	
+				var $prevLi=$('.tab li.tab_selected').prev();
+				$prevLi.click();
+		    });
 			hammer1.on("swipeleft", function(ev) {	//swipeleft,pull to show tab2	        
 				//alert('tab1 swipe left');
 				//ev.stopPropagation();
 				$("#guihua_next_a").click(); //if ok ,show tab2 after refresh values
-		    });
-		    */
+		    });		    
 			hammer2.on("swiperight", function(ev) {	//swiperight,pull to show tab1	        
 				//alert('swiperight');
 				var $prevLi=$('.tab li.tab_selected').prev();
@@ -254,9 +267,9 @@
 				var profit_d=1*10000*0.0075+time_deposit*10000*0.03;       //储蓄收益
 				$("#deposit_profit").text(profit_d*1);
 				
-				var profit_f=fPlanning*10000*0.042;       //理财收益
+				var profit_f=Math.round(fPlanning*10000*0.042);       //理财收益
 				$("#money_fPlanning").text(fPlanning*1);                  //理财配置比重回显总额
-				$("#money_fPlanning_f1").text(fPlanning*10000);           //预计演算
+				$("#money_fPlanning_f1").text(Math.round(fPlanning*10000));           //预计演算
 				$("#fPlanning_profit").text(profit_f*1);
 				
 				$("#money_insurance").text(insurance*1);                  //保险配置比重回显总额
