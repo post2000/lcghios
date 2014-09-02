@@ -52,7 +52,7 @@
 		    	$('.prn').show();		    	
 		    }
 		    else{		    	
-		    	$('.prn').hide();
+		    	$('.prn').show();   //.hide();
 		    }	    
 						
 			$('.prnbtn').click(function(){
